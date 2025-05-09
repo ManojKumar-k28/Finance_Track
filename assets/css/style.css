@@ -1,0 +1,536 @@
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-600, #2c3e50); /* Dark blue or your primary color */
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+  color: var(--primary-300, #85c1e9);
+}
+
+.user-info {
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* pill shape */
+  backdrop-filter: blur(4px); /* optional glass effect */
+  transition: background-color 0.3s ease;
+}
+
+.user-info:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Income List Container - fix for small screens */
+.income-list-container ,.expense-list-container{
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 24px;
+    overflow-x: auto; /* Enables scroll if table overflows */
+    width: 100%;
+  }
+  
+  /* Table wrapper - ensures scroll works */
+  .income-list ,.expense-list{
+    overflow-x: auto;
+  }
+  
+  /* Table styling */
+  .data-table {
+    width: 100%;
+    min-width: 600px; /* Prevent columns from collapsing too much */
+    border-collapse: collapse;
+    font-size: 14px;
+    background-color: #f9f9f9;
+  }
+  
+  .data-table thead {
+    background-color: var(--primary-100);
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-300);
+    color: var(--gray-700);
+  }
+  
+  .data-table th {
+    color: var(--primary-600);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  
+  /* Highlight amount column */
+  .data-table .amount {
+    color: var(--primary-500);
+    font-weight: bold;
+  }
+  
+  /* Action buttons */
+  .data-table .btn-icon {
+    font-size: 16px;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .data-table .btn-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  .data-table .edit-btn i {
+    color: var(--primary-500);
+  }
+  
+  .data-table .delete-btn i {
+    color: var(--danger-500);
+  }
+  
+  /* Fallback for no records */
+  .data-table .no-records {
+    text-align: center;
+    font-style: italic;
+    padding: 16px;
+    color: var(--gray-500);
+  }
+  
+  /* MOBILE SPECIFIC TWEAKS */
+  @media (max-width: 480px) {
+    .income-list-container {
+      padding: 12px;
+    }
+  
+    .data-table th,
+    .data-table td {
+      font-size: 12px;
+      padding: 8px 6px;
+    }
+  
+    .data-table {
+      font-size: 12px;
+    }
+  
+    .btn-icon i {
+      font-size: 14px;
+    }
+  }
+  /* === Categories Lists === */
+
+.categories-lists {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+  
+  /* Individual category list card */
+  .category-list-container {
+    background-color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-md);
+    overflow-x: auto;
+  }
+  
+  /* Section header */
+  .category-list-container .section-header h3 {
+    font-size: var(--font-xl);
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: var(--space-4);
+    border-left: 4px solid var(--primary-500);
+    padding-left: var(--space-3);
+  }
+  
+  /* Category table */
+  .category-list table.data-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    font-size: var(--font-sm);
+    background-color: #fafafa;
+  }
+  
+  .category-list table.data-table thead {
+    background-color: var(--primary-100);
+  }
+  
+  .category-list table.data-table th,
+  .category-list table.data-table td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--gray-300);
+    color: var(--gray-700);
+  }
+  
+  .category-list table.data-table th {
+    color: var(--primary-600);
+    font-weight: 600;
+  }
+  
+  /* Usage column bold */
+  .category-list .data-table td:nth-child(3) {
+    font-weight: 500;
+    color: var(--gray-800);
+  }
+  
+  /* Action buttons */
+  .category-list .data-table .actions .btn-icon {
+    background: none;
+    border: none;
+    padding: var(--space-2);
+    margin: 0 var(--space-1);
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .category-list .data-table .actions .edit-btn i {
+    color: var(--primary-500);
+  }
+  
+  .category-list .data-table .actions .delete-btn i {
+    color: var(--danger-500);
+  }
+  
+  .category-list .data-table .actions .btn-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  /* No records row */
+  .category-list .data-table .no-records {
+    text-align: center;
+    font-style: italic;
+    color: var(--gray-500);
+    padding: var(--space-4);
+  }
+  
+  /* Responsive table adjustments */
+  @media (max-width: 480px) {
+    .category-list-container {
+      padding: var(--space-4);
+    }
+  
+    .category-list table.data-table th,
+    .category-list table.data-table td {
+      font-size: var(--font-xs);
+      padding: var(--space-2);
+    }
+  
+    .category-list table.data-table {
+      font-size: var(--font-xs);
+    }
+  
+    .category-list .btn-icon {
+      font-size: 0.9rem;
+    }
+  }
+/* === Budgets Grid & Cards === */
+
+.budgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+  
+  /* Individual budget card */
+  .budget-card {
+    background-color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+    position: relative;
+  }
+  
+  .budget-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Header with category and period */
+  .budget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+  }
+  
+  .budget-header h4 {
+    font-size: var(--font-base);
+    font-weight: 600;
+    color: var(--gray-800);
+  }
+  
+  .budget-period {
+    background-color: var(--gray-200);
+    color: var(--gray-700);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+  }
+  
+  /* Budget amount */
+  .budget-amount .amount {
+    font-size: var(--font-lg);
+    font-weight: bold;
+    color: var(--primary-500);
+    margin-bottom: var(--space-2);
+  }
+  
+  /* Progress bar wrapper */
+  .budget-progress {
+    margin-bottom: var(--space-2);
+  }
+  
+  .progress-bar {
+    background-color: var(--gray-200);
+    border-radius: var(--radius-full);
+    height: 8px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.3s ease;
+  }
+  
+  /* Status-based colors */
+  .progress.success {
+    background-color: var(--success-500);
+  }
+  
+  .progress.warning {
+    background-color: var(--warning-500);
+  }
+  
+  .progress.danger {
+    background-color: var(--danger-500);
+  }
+  
+  /* Progress text */
+  .progress-text {
+    font-size: var(--font-xs);
+    color: var(--gray-600);
+    margin-top: var(--space-1);
+    display: block;
+    text-align: right;
+  }
+  
+  /* Dates display */
+  .budget-dates {
+    font-size: var(--font-xs);
+    color: var(--gray-500);
+    margin-bottom: var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  /* Budget status label */
+  .budget-status {
+    font-size: var(--font-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+  }
+  
+  .budget-status.success {
+    color: var(--success-600);
+  }
+  
+  .budget-status.warning {
+    color: var(--warning-600);
+  }
+  
+  .budget-status.exceeded,
+  .budget-status.danger {
+    color: var(--danger-600);
+  }
+  
+  /* Action icons */
+  .budget-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-2);
+  }
+  
+  .budget-actions .btn-icon {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: var(--space-1);
+  }
+  
+  .budget-actions .edit-btn i {
+    color: var(--primary-500);
+  }
+  
+  .budget-actions .delete-btn i {
+    color: var(--danger-500);
+  }
+  
+  .budget-actions .btn-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  /* No budgets message */
+  .no-records {
+    text-align: center;
+    font-style: italic;
+    color: var(--gray-500);
+    padding: var(--space-4);
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 480px) {
+    .budgets-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .budget-card {
+      padding: var(--space-3);
+    }
+  
+    .budget-header h4 {
+      font-size: var(--font-sm);
+    }
+  
+    .budget-amount .amount {
+      font-size: var(--font-base);
+    }
+  
+    .progress-text {
+      font-size: var(--font-xs);
+    }
+  
+    .budget-status {
+      font-size: var(--font-xs);
+    }
+  }
+  .content-container {
+    padding: 2rem;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Page header section */
+  .page-header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--gray-200, #e2e8f0);
+    padding-bottom: 1rem;
+  }
+  
+  .page-header h2 {
+    font-size: 1.75rem;
+    color: var(--gray-800, #2d3748);
+    margin-bottom: 0.25rem;
+  }
+  
+  .page-header p {
+    color: var(--gray-500, #718096);
+    font-size: 1rem;
+  }
+  
+  /* Alert styles */
+  .alert {
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  .alert-success {
+    background-color: #e6fffa;
+    color: #0f766e;
+    border: 1px solid #b2f5ea;
+  }
+  
+  .alert-error {
+    background-color: #ffe6e6;
+    color: #b91c1c;
+    border: 1px solid #feb2b2;
+  }
+  
+  /* Dashboard layout */
+  .income-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  /* Summary card styling */
+  .summary-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Card icon */
+  .card-icon {
+    font-size: 2rem;
+    color: var(--primary-600, #3b82f6);
+    background-color: var(--primary-100, #dbeafe);
+    padding: 0.75rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Card content */
+  .card-content h3 {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 0.25rem;
+  }
+  
+  .card-content .amount {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a202c;
+  }
+   
