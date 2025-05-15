@@ -111,7 +111,7 @@ $usage_count = getCategoryUsage($conn, $category_id, $user_id, $category['type']
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1 class="logo">FinanceTrack</h1>
+                <h1 class="logo">Finance Track</h1>
             </div>
             <nav class="sidebar-nav">
                 <ul>
